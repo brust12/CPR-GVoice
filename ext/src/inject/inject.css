@@ -1,0 +1,83 @@
+/* 
+.header-container.type4{
+    border-top-color: beige !important;
+}
+
+.header-container {
+    border-top-width: 30px !important;
+    border-top-style: solid;
+} */
+/* .using-price{
+    position: fixed;
+    left: 45px;
+    top: 260px;
+} */
+
+.buttonprice55{
+
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        margin: 0;
+        padding: 1px 3px;
+        font-size: smaller;
+    
+}
+.buttonprice55:hover{
+    /* color: red; */
+    outline: auto;
+}
+.buttonprice55.selec{
+    outline: auto;
+    outline-color: red;
+}
+
+
+.buttonprice75{
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin: 0;
+    padding: 1px 3px;
+    font-size: smaller;
+
+}
+.buttonprice75:hover{
+outline: auto;
+}
+.buttonprice75.selec{
+    outline: auto;
+
+outline-color: red;
+
+}
+
+
+.buttonprice100{
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin: 0;
+    padding: 1px 3px;
+    font-size: smaller;
+
+}
+.buttonprice100:hover{
+outline: auto;
+}
+.buttonprice100.selec{
+    outline: auto;
+
+outline-color: red;
+}
