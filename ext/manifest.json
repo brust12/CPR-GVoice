@@ -14,17 +14,15 @@
   
   "default_locale": "en",
   "host_permissions": [
-    "https://cpr.repairq.io/ticket/*"
+    "https://mail.google.com/*"
   ],
   "content_scripts": [
     
     {
-      "matches": [
-        "https://cpr.repairq.io/ticket/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
+      "matches": ["https://mail.google.com/*"],
+      "run_at": "document_end",
+      "js": ["src/inject/inject.js"]
     }
+    
   ]
 }

@@ -11,11 +11,19 @@
 function main(){
     //Check to see if were on a parts page or another page.
     let url = document.URL;
- 
+    let tt = document.querySelector('a[style="display:block;padding:15px 10px;text-decoration:none;color:#ff5e5b"]');
+    console.log(tt);
+    tt.removeAttribute("href");
+    let child = tt.lastElementChild;
+    // console.log(child);
+    let text = child.textContent;
+    text = text.replace(/\D/g,'');
+    console.log(text);
+    
+
 }
 
 main();
-
 /*
 var ttt = document.getElementById("input_0")
 ttt.value +="Hi Tim,
