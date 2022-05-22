@@ -5,7 +5,16 @@
  * @file inject.js
  */
 
+function grabCustomerInfo(){
+    let number_a = document.querySelector('a[style="display:block;padding:15px 10px;text-decoration:none;color:#ff5e5b"]');
+    let child = number_a.lastElementChild;
+    let phone_number = child.textContent;
+    phone_number = phone_number.replace(/\D/g,'');
 
+
+
+    console.log(phone_number);
+}
 
 
 function main(){
@@ -23,7 +32,30 @@ function main(){
 
 }
 
-main();
+
+window.addEventListener ("load", myMain, false);
+
+function myMain (evt) {
+    var jsInitChecktimer = setInterval (checkForJS_Finish, 111);
+
+    function checkForJS_Finish () {
+        if (    typeof SOME_GLOBAL_VAR != "undefined"
+            ||  document.querySelector ('a[style="display:block;padding:15px 10px;text-decoration:none;color:#ff5e5b"]')
+        ) {
+            clearInterval (jsInitChecktimer);
+            grabCustomerInfo();
+        }
+    }
+}
+
+
+// chrome.tabs.onUpdated.addListener("load",function (tabId , info) {
+//     if (info.status === 'complete') {
+//         main();
+//     }
+//   });
+
+// main();
 /*
 var ttt = document.getElementById("input_0")
 ttt.value +="Hi Tim,
