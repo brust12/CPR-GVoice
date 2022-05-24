@@ -11,10 +11,11 @@
   },  "action": {
     "default_popup": "src/popup/popup.html"
   },
-
+  "permissions":["tabs"],
   "default_locale": "en",
   "host_permissions": [
-    "https://mail.google.com/*"
+    "https://mail.google.com/*",
+    "https://voice.google.com/*"
   ],
   "content_scripts": [
     
@@ -22,6 +23,9 @@
       "matches": ["https://mail.google.com/*"],
       "run_at": "document_end",
       "js": ["src/inject/inject.js"]
+    },{
+      "matches": ["https://voice.google.com/*"],
+      "js": ["src/gvoice/gvoice.js"]
     }
     
   ]

@@ -26,8 +26,16 @@ sendMessageButton.onclick = async function(e) {
 
     chrome.tabs.sendMessage(tab[0].id, {msg: "grab_info"}, function(response) {
         let nameh1 = document.getElementById("name");
+        let numberh1 = document.getElementById("number");
+        numberh1.textContent = response.number;
         nameh1.textContent = response.name;
         console.log(response.status,response.name);
     });
     // chrome.tabs.create({active: true, url: "https://google.com"});
 }
+
+var g_voi = document.getElementById("button2");
+g_voi.onclick = chrome.tabs.create({ url: "https://voice.google.com/u/0/messages" }, function(tab) {
+  chrome.tabs.sendMessage(tab.id, {msg: "cust_info"});
+  
+});
