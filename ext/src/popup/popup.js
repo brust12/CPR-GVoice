@@ -11,12 +11,12 @@
 
   // document.getElementById("button1").addEventListener("click",()=>alert("testing"));
 
-  // document.getElementById("templates").addEventListener("change",(event)=>
-  // {
-  //   document.getElementById("textfield").value = event.target.value;
-  //   console.log(event.target.value);
-  // }
-  // )
+  document.getElementById("templates").addEventListener("change",(event)=>
+  {
+    document.getElementById("textfield").value = event.target.value;
+    console.log(event.target.value);
+  }
+  )
 
 
 const sendMessageButton = document.getElementById('button1')
@@ -27,7 +27,9 @@ sendMessageButton.onclick = async function(e) {
     chrome.tabs.sendMessage(tab[0].id, {msg: "grab_info"}, function(response) {
         let nameh1 = document.getElementById("name");
         let numberh1 = document.getElementById("number");
-        numberh1.textContent = response.number;
+        msg_container = document.getElementById("textfield");
+        msg_container.value = "hello"+response.name;
+        numberh1.value = response.number;
         nameh1.textContent = response.name;
         console.log(response.status,response.name);
     });
@@ -35,7 +37,8 @@ sendMessageButton.onclick = async function(e) {
 }
 
 var g_voi = document.getElementById("button2");
-g_voi.onclick = function() {
-  chrome.runtime.sendMessage({msg: "cust_info"});
+g_voi.onclick = async function() {
+  await chrome.runtime.sendMessage({msg: "cust_info"}).then((res)=>console.log(res)).catch((e)=>{console.log(e)});
+  
   
 };
