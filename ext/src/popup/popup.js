@@ -35,7 +35,7 @@ sendMessageButton.onclick = async function(e) {
 }
 
 var g_voi = document.getElementById("button2");
-g_voi.onclick = async function(e){chrome.tabs.create({ url: "https://voice.google.com/u/0/messages" }, function(tab) {
-  chrome.tabs.sendMessage(tab.id, {msg: "cust_info"});
+g_voi.onclick = function() {
+  chrome.runtime.sendMessage({msg: "cust_info"});
   
-});}
+};
