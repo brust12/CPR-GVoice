@@ -15,21 +15,15 @@
     return response.json(); // parses JSON response into native JavaScript objects
   }
   var url = "https://api.twilio.com/2010-04-01/Accounts/ACfbad9682f0417ba0e785b0368b21241e/Messages.json";
-  // var data = {To : '+16519256782',
-  //             From : '+19706618106',
-  //             Body : 'testing from chrome'}
-  var data  = new FormData();
-  data.append('To', '+16519256782');
-  data.append('From', '+19706618106');
-  data.append('Body', 'Testing from chrome');
-
   
-  chrome.runtime.onMessage.addListener( (msg, sender,sendResponse) => {
-    if (msg.msg === 'cust_info') {
-      let resp =   postData(url,data);
+  chrome.runtime.onMessage.addListener((msg, sender,sendResponse) => {
+    var data  = new FormData();
+    data.append('To', '+16519256782');
+    data.append('From', '+19706618106');
+    data.append('Body', msg.text);
+    if (msg.msg === 'send_SMS') {
+      let resp =  postData(url,data).then((res)=>{sendResponse(res);console.log(res)});
       // console.log(resp);
-
-      sendResponse(resp);
       // sendResponse("sent");
       return true;
 

@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="popup.css">
   </head>
   <body>
     <label for="templates">Select Template:</label>
     <select name="templates" id="templates">
-      <option value="Apple">Apple</option>
-      <option value="Samsung">Samsung</option>
-      <option value="Motorola">Motorola</option>
-      <option value="audi">Audi</option>
+      <option value="Testing ONE">1</option>
+      <option value="Testing TWO"${name.value}>2</option>
+      <option value="Testing THREE">3</option>
+      <option value="Testing FOUR">4</option>
     </select>
-    <textarea id = "textfield"rows="10" cols="30">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere, arcu sit amet imperdiet semper, lacus augue convallis ante, id maximus libero quam a augue. Fusce metus nisl, ultrices et pulvinar vitae, pellentesque in urna. Proin nec arcu dignissim, ultricies velit eget, accumsan quam. Quisque vehicula ornare bibendum. Vivamus in libero neque. Pellentesque in mollis lorem. Pellentesque fermentum tortor tincidunt massa iaculis, id posuere mi dignissim. Nam porta est erat. Mauris rhoncus nunc vehicula hendrerit facilisis.
+    <textarea id = "textfield"rows="10" cols="30">Lorem hello ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere, arcu sit amet imperdiet semper, lacus augue convallis ante, id maximus libero quam a augue. Fusce metus nisl, ultrices et pulvinar vitae, pellentesque in urna. Proin nec arcu dignissim, ultricies velit eget, accumsan quam. Quisque vehicula ornare bibendum. Vivamus in libero neque. Pellentesque in mollis lorem. Pellentesque fermentum tortor tincidunt massa iaculis, id posuere mi dignissim. Nam porta est erat. Mauris rhoncus nunc vehicula hendrerit facilisis.
     </textarea>
-<h1 id="name">
+<h1 id="name" value="name">
 Name
 </h1>
 <label for="number">Phone Number:</label>
-<input type="tel" id="number" name="fname"placeholder="123-456-7890   "><br><br>
+<input type="tel" id="number" name="fname"placeholder="1234567890"size="9" padding="15">
+<br><br>
 <div>
-  <button id="button1">GRAB DATA</button>
-  <button id="button2">TEXT</button>
+  <button id="get_data">GRAB DATA</button>
+  <button id="send_message">TEXT</button>
+  <br><br>
+  <label for="response">Status:</label>
+  <i id="response"></i>
 </div> 
 
 
