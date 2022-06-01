@@ -11,15 +11,22 @@ let custname,custnumber = "";
 
  chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      if (request.msg === "grab_info") {
-        grabCustomerInfo();
-        sendResponse({status: "done",name:custname,number:custnumber });
-      }
+      if (request.msg === "grab_info") 
+        var info= grabCustomerInfo();
+        print(info);
+        if(!info){
+            sendResponse({status:"error"})
+        }else{
+            sendResponse({status: "done",name:custname,number:custnumber });
+        }
     }
 );
 
 function grabCustomerInfo(){
     let number_a = document.querySelector('a[style="display:block;padding:15px 10px;text-decoration:none;color:#ff5e5b"]');
+    if(!number_a){
+        return false;
+    }
     let child = number_a.lastElementChild;
     let phone_number = child.textContent;
     phone_number = phone_number.replace(/\D/g,'');
@@ -32,6 +39,7 @@ function grabCustomerInfo(){
     let tt = document.querySelector('a[style="display:block;padding:15px 10px;text-decoration:none;color:#ff5e5b"]');
     // tt.innerHTML = tt.textContent.replace("CALL","TEXT");
     tt.removeAttribute("href");
+    return true;
    
 }
 
