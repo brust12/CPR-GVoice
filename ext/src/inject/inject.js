@@ -13,7 +13,7 @@ let custname,custnumber = "";
     function(request, sender, sendResponse) {
       if (request.msg === "grab_info") 
         var info= grabCustomerInfo();
-        print(info);
+        console.log(info);
         if(!info){
             sendResponse({status:"error"})
         }else{

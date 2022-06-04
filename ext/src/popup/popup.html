@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" href="popup.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <label for="templates">Select Template:</label>
     <select name="templates" id="templates">
       <option value="Blank">Blank</option>
@@ -11,22 +13,23 @@
       <option value="Testing THREE">3</option>
       <option value="Testing FOUR">4</option>
     </select>
-    <textarea id = "textfield"rows="10" cols="30"></textarea>
-<h1 id="name" value="name">
-Name
-</h1>
-<label for="number">Phone Number:</label>
-<input type="tel" id="number" name="fname"placeholder="1234567890"size ="9" padding="15">
-<br><br>
-<div>
-  <button id="get_data">GRAB DATA</button>
-  <button id="send_message">TEXT</button>
-  <br><br>
-  <label for="response">Status:</label>
-  <i id="response"></i>
-</div> 
+    <textarea id="textfield" rows="10" cols="30"></textarea>
+    <h1 id="name" value="name">
+
+    </h1>
+    <label for="number">Phone Number:</label>
+    <input type="tel" id="number" name="fname" placeholder="1234567890" size="9" padding="15" maxlength="10">
+    <br><br>
+    <div>
+        <button id="get_data">GRAB DATA</button>
+        <button id="send_message">TEXT</button>
+        <br><br>
+        <label for="response">Status:</label>
+        <i id="response"></i>
+    </div>
 
 
-  </body>
-  <script src = "popup.js"></script>
+</body>
+<script src="popup.js"></script>
+
 </html>
