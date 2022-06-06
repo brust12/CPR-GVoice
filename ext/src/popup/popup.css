@@ -8,7 +8,7 @@ textarea {
 }
 
 h1 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Nunito', sans-serif;
     color: white;
     -webkit-text-stroke-width: 1px black;
 }
@@ -31,7 +31,7 @@ button {
 
 label {
     color: white;
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Nunito', sans-serif;
 }
 
 button {

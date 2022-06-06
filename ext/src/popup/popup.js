@@ -38,6 +38,7 @@ sendMessageButton.onclick = async function(e) {
 
 var g_voi = document.getElementById("send_message");
 g_voi.onclick = async function() {
+    // window.confirm("Send Message?");
     let textfield = document.getElementById("textfield").value;
     await chrome.runtime.sendMessage({ msg: "send_SMS", text: textfield })
         .then((res) => {

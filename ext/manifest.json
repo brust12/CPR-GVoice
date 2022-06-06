@@ -1,28 +1,28 @@
 {
-  "name": "RepairQ SMS Feature",
-  "version": "0.0.1",
-  "manifest_version": 3,
-  "description": "Add SMS messaging for RQ.",
-  "homepage_url": "http://fake.com",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },  "action": {
-    "default_popup": "src/popup/popup.html"
-  },
-  "background":{
-  "service_worker":"src/background/background.js"},
-  "permissions":["tabs"],
-  "default_locale": "en",
-  "host_permissions": [
-    "https://mail.google.com/*"]
-  ,
-  "content_scripts": [
-    {
-      "matches": ["https://mail.google.com/*"],
-      "run_at": "document_end",
-      "js": ["src/inject/inject.js"]
-    }
-  ]
+    "name": "CPR SMS",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "Add SMS messaging for RQ.",
+    "homepage_url": "http://fake.com",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "src/popup/popup.html"
+    },
+    "background": {
+        "service_worker": "src/background/background.js"
+    },
+    "permissions": ["tabs"],
+    "default_locale": "en",
+    "host_permissions": [
+        "https://mail.google.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["https://mail.google.com/*"],
+        "run_at": "document_end",
+        "js": ["src/inject/inject.js"]
+    }]
 }
