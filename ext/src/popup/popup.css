@@ -1,4 +1,10 @@
 html{
     border-radius: 25px;
-    background-color: whitesmoke;
+    background-color: darkgrey;
+}
+textarea{
+    background-color: gray;
+}
+h1{
+    font-family: fantasy;
 }

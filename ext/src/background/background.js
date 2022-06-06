@@ -27,10 +27,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
             sendResponse(res);
             console.log(res)
         });
-        // console.log(resp);
-        // sendResponse("sent");
         return true;
-
     }
 });
 
