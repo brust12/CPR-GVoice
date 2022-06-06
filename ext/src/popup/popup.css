@@ -1,10 +1,46 @@
-html{
+html {
     border-radius: 25px;
-    background-color: darkgrey;
+    background-color: #302f38;
 }
-textarea{
-    background-color: gray;
+
+textarea {
+    background-color: lightgray;
 }
-h1{
-    font-family: fantasy;
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    -webkit-text-stroke-width: 1px black;
+}
+
+select {
+    background-color: darkred;
+    color: lightgrey;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: darkred;
+    color: lightgrey;
+}
+
+.status {
+    color: red;
+}
+
+label {
+    color: white;
+    font-family: 'Courier New', Courier, monospace
+}
+
+button {
+    border-radius: 10px;
+}
+
+input {
+    border-radius: 5px;
+    background-color: darkred;
+    color: white;
+    margin-left: 5px;
 }

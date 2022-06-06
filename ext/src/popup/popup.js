@@ -9,12 +9,12 @@ var response_label = document.getElementById('response');
 
 
 const sendMessageButton = document.getElementById('get_data')
-sendMessageButton.onclick = async function (e) {
+sendMessageButton.onclick = async function(e) {
     //Check if URL is gmail otherwise listening script isnt running//DONE
     let queryOptions = { active: true, currentWindow: true };
     let tab = await chrome.tabs.query(queryOptions);
 
-    chrome.tabs.sendMessage(tab[0].id, { msg: "grab_info" }, function (response) {
+    chrome.tabs.sendMessage(tab[0].id, { msg: "grab_info" }, function(response) {
         var lastError = chrome.runtime.lastError;
         if (lastError) {
             console.log(lastError.message);
@@ -37,17 +37,18 @@ sendMessageButton.onclick = async function (e) {
 }
 
 var g_voi = document.getElementById("send_message");
-g_voi.onclick = async function () {
+g_voi.onclick = async function() {
     let textfield = document.getElementById("textfield").value;
     await chrome.runtime.sendMessage({ msg: "send_SMS", text: textfield })
         .then((res) => {
             if (res.message)
-            response_label.textContent = "Error: "+res.message;
-            
-            else  
-            response_label.textContent =  res.status; 
-            
-                
+                response_label.textContent = "Error: " + res.message;
+
+            else
+            // response_label.textContent =  res.status; 
+                response_label.textContent = "Message Sent!";
+
+
         })
         .catch((e) => { document.getElementById('response').textContent = res.status });
 
