@@ -1,9 +1,26 @@
 // document.getElementById("button1").addEventListener("click",()=>alert("testing"));
+var loca = document.getElementById("locations");
 
 document.getElementById("templates").addEventListener("change", (event) => {
-    document.getElementById("textfield").value = event.target.value;
+    document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + event.target.value;
+
+});
+
+chrome.storage.sync.get("location", function(result) {
+        console.log(result);
+        loca.value = result.location;
+    })
+    // loca.value = chrome.storage.sync.get("location", function() {})
+
+
+loca.addEventListener("change", (e) => {
+    chrome.storage.sync.set({ "location": loca.value }, function() {});
+    var tex = document.getElementById("templates").value;
+    document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + tex;
+
 
 })
+
 
 var response_label = document.getElementById('response');
 
@@ -36,21 +53,22 @@ sendMessageButton.onclick = async function(e) {
     });
 }
 
-var g_voi = document.getElementById("send_message");
-g_voi.onclick = async function() {
-    // window.confirm("Send Message?");
-    let textfield = document.getElementById("textfield").value;
-    await chrome.runtime.sendMessage({ msg: "send_SMS", text: textfield })
-        .then((res) => {
-            if (res.message)
-                response_label.textContent = "Error: " + res.message;
-
-            else
-            // response_label.textContent =  res.status; 
-                response_label.textContent = "Message Sent!";
 
 
-        })
-        .catch((e) => { document.getElementById('response').textContent = res.status });
+var insert = document.getElementById("insert");
+insert.onclick = async function(e) {
+    let queryOptions = { active: true, currentWindow: true };
+    let tab = await chrome.tabs.query(queryOptions);
+    // var templa = document.getElementById("templates").value;
+    var templa = document.getElementById("textfield").value;
+    chrome.tabs.sendMessage(tab[0].id, { msg: "insert", temp: templa }, function(response) {
+        var lastError = chrome.runtime.lastError;
+        if (lastError) {
+            console.log(lastError.message);
+            // 'Could not establish connection. Receiving end does not exist.'
+            return;
+        }
 
-};
+    });
+    // chrome.tabs.create({active: true, url: "https://google.com"});
+}

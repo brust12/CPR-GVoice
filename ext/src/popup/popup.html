@@ -9,27 +9,42 @@
 </head>
 
 <body>
-    <h1>Texting Tool for CPR</h1>
+    <h1>Google Voice Templates for CPR</h1>
     <label for="templates">Select Template:</label>
     <select name="templates" id="templates">
       <option value="">Blank</option>
-      <option value="Testing TWO">2</option>
-      <option value="Testing THREE">3</option>
-      <option value="Testing FOUR">4</option>
+      <option value="&#10;We have your Screen in Stock at CPR Coon Rapids! Stop in Today, Walk-Ins Welcome! &#10;The cost for your Screen Replacement is: &#10;-Standard Screen:$__&#10;-Apple OEM Screen: $__ (OEM screens need to be ordered)">iPhone Screen- In Stock</option>
+      <option value="&#10;We have your Part in Stock! Stop in Today, Walk-Ins Welcome!&#10;The cost for your repair will be $___.">General in Stock</option>
+      <option value="&#10;The cost for your repair is $___.&#10;The part for this repair will need to be ordered. Please stop by so we can confirm your device and the issue. We'll see you soon!">General Out of Stock</option>
+      <option value="&#10;We have your Battery in Stock. Stop in Today, Walk-Ins Welcome!&#10;Your Battery Replacement will be $___.&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery In-Stock</option>
+      <option value="&#10;Your Battery Replacement will be $___.&#10;The part for this repair will need to be ordered. Please stop by to confirm your device and the issue. We'll see you soon!&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery Out-of-Stock</option>
+      <option value="&#10;I'm sorry to hear about your device. While we can definitely attempt to service your device, we normally do liquid damage repairs for data recovery only.&#10;Our liquid damage service costs $80. Success rates are low due to the nature of liquid damage and we can't guarantee or warranty any service on it.&#10;We hope you give us the opportunity to help you out!">Liquid Damage</option>
+      <option value="&#10;Unfortunately, we do not offer repairs on Apple Watches due to the part costs and inability to fix. We often recommend replacing broken Apple Watches.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Watches</option>
+      <option value="&#10;Unfortunately, we can not offer repairs on Apple Back Glass at this location due to not having Apple OEM Back Glass parts and due to the difficulty of repair. If this repair is completed with non-OEM parts, the device will not be eligible for a future trade-in.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Back Glass</option>
+
     </select>
+
+    <select name="location" id="locations">
+        <option value="Coon Rapids">Coon Rapids</option>
+        <option value="Woodbury">Woodbury</option>
+        <option value="Burnsville">Burnsville</option>
+        <option value="Eden Prarie">Eden Prarie</option>
+        <option value="Hudson">Hudson</option>
+
+      </select>
     <textarea id="textfield" rows="10" cols="40"></textarea>
+
     <h1 id="name" value="name">
 
     </h1>
-    <label for="number">Phone Number: </label>
-    <input type="tel" id="number" name="fname" placeholder="1234567890" size="9" padding="15" maxlength="10">
-    <br><br>
+    <label for="number" style="display:none;">Phone Number: </label>
+    <input type="tel" id="number" name="fname" placeholder="1234567890" size="9" padding="15" maxlength="10" style="display:none;">
+    <!-- <br><br> -->
     <div>
-        <button id="get_data">GRAB DATA</button>
-        <button id="send_message">TEXT</button>
-        <br><br>
-        <label for="response">Status:</label>
-        <i id="response" class="status"></i>
+        <button id="get_data" style="display:none;">GRAB DATA</button>
+        <button id="insert">Insert</button>
+        <button id="clear">Clear</button>
+
     </div>
 
 

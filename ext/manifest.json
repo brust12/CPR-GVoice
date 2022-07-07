@@ -1,5 +1,5 @@
 {
-    "name": "CPR SMS",
+    "name": "Gvoice SMS",
     "version": "0.0.1",
     "manifest_version": 3,
     "description": "Add SMS messaging for RQ.",
@@ -15,7 +15,7 @@
     "background": {
         "service_worker": "src/background/background.js"
     },
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
     "default_locale": "en",
     "host_permissions": [
         "https://mail.google.com/*"
@@ -24,5 +24,8 @@
         "matches": ["https://mail.google.com/*"],
         "run_at": "document_end",
         "js": ["src/inject/inject.js"]
+    }, {
+        "matches": ["https://voice.google.com/*"],
+        "js": ["src/gvoice/gvoice.js"]
     }]
 }
