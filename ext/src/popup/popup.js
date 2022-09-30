@@ -1,32 +1,31 @@
 // document.getElementById("button1").addEventListener("click",()=>alert("testing"));
-var loca = document.getElementById("locations");
 
+//Change Greeting based on locatiom when template is selected
+var loca = document.getElementById("locations");
 document.getElementById("templates").addEventListener("change", (event) => {
     document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + event.target.value;
 
 });
 
+//Save location on change
 chrome.storage.sync.get("location", function(result) {
-        console.log(result);
-        loca.value = result.location;
-    })
-    // loca.value = chrome.storage.sync.get("location", function() {})
+    console.log(result);
+    loca.value = result.location;
+})
 
-
+//Add store location greeting when location is changed
 loca.addEventListener("change", (e) => {
     chrome.storage.sync.set({ "location": loca.value }, function() {});
     var tex = document.getElementById("templates").value;
     document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + tex;
-
-
 })
 
 
 var response_label = document.getElementById('response');
 
-
-const sendMessageButton = document.getElementById('get_data')
-sendMessageButton.onclick = async function(e) {
+//GRAB DATA IN GMAIL
+const get_data_btn = document.getElementById('get_data')
+get_data_btn.onclick = async function(e) {
     //Check if URL is gmail otherwise listening script isnt running//DONE
     let queryOptions = { active: true, currentWindow: true };
     let tab = await chrome.tabs.query(queryOptions);
@@ -38,7 +37,7 @@ sendMessageButton.onclick = async function(e) {
             // 'Could not establish connection. Receiving end does not exist.'
             return;
         }
-
+        //FILL TEXT FIELDS IF DATA WAS GRABBED
         let name = document.getElementById("name");
         let number = document.getElementById("number");
         msg_container = document.getElementById("textfield");
@@ -59,9 +58,8 @@ var insert = document.getElementById("insert");
 insert.onclick = async function(e) {
     let queryOptions = { active: true, currentWindow: true };
     let tab = await chrome.tabs.query(queryOptions);
-    // var templa = document.getElementById("templates").value;
-    var templa = document.getElementById("textfield").value;
-    chrome.tabs.sendMessage(tab[0].id, { msg: "insert", temp: templa }, function(response) {
+    var text_to_insert = document.getElementById("textfield").value;
+    chrome.tabs.sendMessage(tab[0].id, { msg: "insert", temp: text_to_insert }, function(response) {
         var lastError = chrome.runtime.lastError;
         if (lastError) {
             console.log(lastError.message);
