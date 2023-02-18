@@ -18,7 +18,9 @@
     "permissions": ["tabs", "storage"],
     "default_locale": "en",
     "host_permissions": [
-        "https://mail.google.com/*"
+        "https://mail.google.com/*",
+        "https://drive.google.com/*"
+        
     ],
     "content_scripts": [{
         "matches": ["https://mail.google.com/*"],

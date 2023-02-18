@@ -17,7 +17,9 @@ chrome.storage.sync.get("location", function(result) {
 loca.addEventListener("change", (e) => {
     chrome.storage.sync.set({ "location": loca.value }, function() {});
     var tex = document.getElementById("templates").value;
+    var sel_id = document.getElementById("templates").id;
     document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + tex;
+    
 })
 
 

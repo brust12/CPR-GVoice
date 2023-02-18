@@ -1,54 +1,118 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" href="popup.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    <head>
+        <link rel="stylesheet" href="popup.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+            />
+        <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
     </style>
-</head>
+    </head>
 
-<body>
-    <h1>Google Voice Templates for CPR</h1>
-    <label for="templates">Select Template:</label>
-    <select name="templates" id="templates">
-      <option value="">Blank</option>
-      <option value="&#10;We have your Screen in Stock at CPR Coon Rapids! Stop in Today, Walk-Ins Welcome! &#10;The cost for your Screen Replacement is: &#10;-Standard Screen:$__&#10;-Apple OEM Screen: $__ (OEM screens need to be ordered)">iPhone Screen- In Stock</option>
-      <option value="&#10;We have your Part in Stock! Stop in Today, Walk-Ins Welcome!&#10;The cost for your repair will be $___.">General in Stock</option>
-      <option value="&#10;The cost for your repair is $___.&#10;The part for this repair will need to be ordered. Please stop by so we can confirm your device and the issue. We'll see you soon!">General Out of Stock</option>
-      <option value="&#10;We have your Battery in Stock. Stop in Today, Walk-Ins Welcome!&#10;Your Battery Replacement will be $___.&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery In-Stock</option>
-      <option value="&#10;Your Battery Replacement will be $___.&#10;The part for this repair will need to be ordered. Please stop by to confirm your device and the issue. We'll see you soon!&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery Out-of-Stock</option>
-      <option value="&#10;I'm sorry to hear about your device. While we can definitely attempt to service your device, we normally do liquid damage repairs for data recovery only.&#10;Our liquid damage service costs $80. Success rates are low due to the nature of liquid damage and we can't guarantee or warranty any service on it.&#10;We hope you give us the opportunity to help you out!">Liquid Damage</option>
-      <option value="&#10;Unfortunately, we do not offer repairs on Apple Watches due to the part costs and inability to fix. We often recommend replacing broken Apple Watches.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Watches</option>
-      <option value="&#10;Unfortunately, we can not offer repairs on Apple Back Glass at this location due to not having Apple OEM Back Glass parts and due to the difficulty of repair. If this repair is completed with non-OEM parts, the device will not be eligible for a future trade-in.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Back Glass</option>
+    <body style="background: #252526">
+        <div class="container">
+            <h1
+                style="
+                color: rgb(185, 6, 6);
+                text-align: center;
+                font-family: inherit;
+                margin: 10px;
+                ">
+                Google Voice Templates for CPR
+            </h1>
+            <div class="input-group mb-3" style="padding: 10px";>
+                <div  class="input-group-prepend">
+                    <label class="input-group-text" for="templates" style="background: #9b9b9b; color: black; border: none">Select
+                        Template:</label>
+                    </div>
+                    <select
+                        name="templates"
+                        id="templates"
+                        class="form-select"
+                        style="background-color: #9f3c3c; border: none; color:
+                        white"
+                        ;>
+                        <option value="">Blank</option>
+                        <option id="1" value="&#10;We have your Screen in Stock at CPR Coon Rapids! Stop in Today, Walk-Ins Welcome! &#10;The cost for your Screen Replacement is: &#10;-Standard Screen:$__&#10;-Apple OEM Screen: $__ (OEM screens need to be ordered)">iPhone Screen- In Stock</option>
+                        <option value="&#10;We have your Part in Stock! Stop in Today, Walk-Ins Welcome!&#10;The cost for your repair will be $___."> General in Stock</option>
+                        <option value="&#10;The cost for your repair is $___.&#10;The part for this repair will need to be ordered. Please stop by so we can confirm your device and the issue. We'll see you soon!">General Out of Stock</option>
+                        <option value="&#10;We have your Battery in Stock. Stop in Today, Walk-Ins Welcome!&#10;Your Battery Replacement will be $___.&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery In-Stock</option>
+                        <option value="&#10;Your Battery Replacement will be $___.&#10;The part for this repair will need to be ordered. Please stop by to confirm your device and the issue. We'll see you soon!&#10;&#10;Before Arriving: You will need to know your Apple ID password to turn off &#8220;Find My&#8221; for this Apple repair.">Apple Battery Out-of-Stock</option>
+                        <option value="&#10;I'm sorry to hear about your device. While we can definitely attempt to service your device, we normally do liquid damage repairs for data recovery only.&#10;Our liquid damage service costs $80. Success rates are low due to the nature of liquid damage and we can't guarantee or warranty any service on it.&#10;We hope you give us the opportunity to help you out!">Liquid Damage</option>
+                        <option value="&#10;Unfortunately, we do not offer repairs on Apple Watches due to the part costs and inability to fix. We often recommend replacing broken Apple Watches.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Watches</option>
+                        <option value="&#10;Unfortunately, we can not offer repairs on Apple Back Glass at this location due to not having Apple OEM Back Glass parts and due to the difficulty of repair. If this repair is completed with non-OEM parts, the device will not be eligible for a future trade-in.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Back Glass</option>
+                    </select>
+               
+                
 
-    </select>
+            </div>
+         
 
-    <select name="location" id="locations">
-        <option value="Coon Rapids">Coon Rapids</option>
-        <option value="Woodbury">Woodbury</option>
-        <option value="Burnsville">Burnsville</option>
-        <option value="Eden Prarie">Eden Prarie</option>
-        <option value="Hudson">Hudson</option>
+            <!-- <div style="padding: 10px;">
+            
+        <label for="location" style="color:rgb(255, 255, 255)">Select location:</label>
+        <select name="location" id="locations" class="form-select" style="background-color: #9f3c3c;    border: none;    color: white;">
+            <option value="Coon Rapids">Coon Rapids</option>
+            <option value="Woodbury">Woodbury</option>
+            <option value="Burnsville">Burnsville</option>
+            <option value="Eden Prarie">Eden Prarie</option>
+            <option value="Hudson">Hudson</option>
+    
+          </select>
+        </div> -->
+            <div class="input-group mb-3" style="padding: 10px" ;>
+                <div class="input-group-prepend">
+                    <label
+                        class="input-group-text"
+                        for="inputGroupSelect01"
+                        style="background: #9b9b9b; color: black; border: none">Location</label>
+                </div>
+                <select
+                    name="location"
+                    id="locations"
+                    class="form-select"
+                    style="background-color: #9f3c3c; border: none; color:
+                    white">
+                    <option value="Coon Rapids">Coon Rapids</option>
+                    <option value="Woodbury">Woodbury</option>
+                    <option value="Burnsville">Burnsville</option>
+                    <option value="Eden Prarie">Eden Prarie</option>
+                    <option value="Hudson">Hudson</option>
+                </select>
+            </div>
 
-      </select>
-    <textarea id="textfield" rows="10" cols="40"></textarea>
+            <textarea
+                style="margin: 10px; background: #1e1e1e; color: white; font:message-box;"
+                id="textfield"
+                rows="10"
+                cols="60"></textarea>
 
-    <h1 id="name" value="name">
-
-    </h1>
-    <label for="number" style="display:none;">Phone Number: </label>
-    <input type="tel" id="number" name="fname" placeholder="1234567890" size="9" padding="15" maxlength="10" style="display:none;">
-    <!-- <br><br> -->
-    <div>
-        <button id="get_data" style="display:none;">GRAB DATA</button>
-        <button id="insert">Insert</button>
-        <button id="clear">Clear</button>
-
-    </div>
-
-
-</body>
-<script src="popup.js"></script>
-
+            <h1 id="name" value="name"></h1>
+            <label for="number" style="display: none">Phone Number: </label>
+            <input
+                type="tel"
+                id="number"
+                name="fname"
+                placeholder="1234567890"
+                size="9"
+                padding="15"
+                maxlength="10"
+                style="display: none"
+                />
+            <!-- <br><br> -->
+            <div style="margin: 10px;">
+                <button class="btn btn-primary" id="get_data" style="display:
+                    none">
+                    GRAB DATA
+                </button>
+                <button style="margin-right: 20px;" class="btn btn-primary" id="insert">Insert</button>
+                <button class="btn btn-primary" id="clear">Clear</button>
+            </div>
+        </div>
+    </body>
+    <script src="popup.js"></script>
 </html>
