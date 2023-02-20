@@ -1,3 +1,22 @@
+chrome.runtime.onInstalled.addListener(function (object) {
+    if (object.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+      
+        var key='temp1', testPrefs ="temp1";
+        chrome.storage.local.set({key: testPrefs}, function() {console.log('Saved', key, testPrefs);})
+
+    }
+});
+
+
+function onStartUp(){
+    chrome.storage.local.get(["temp1"]).then((result) => {
+        console.log("Value currently is " + result.key);
+      });
+}
+
+onStartUp()
+
+
 async function postData(urll, dataa) {
     // Default options are marked with *
     // console.log(dataa);

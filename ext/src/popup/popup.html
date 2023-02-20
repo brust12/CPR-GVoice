@@ -17,10 +17,11 @@
         <div class="container">
             <h1
                 style="
-                color: rgb(185, 6, 6);
+                color: rgb(255, 255, 255);
                 text-align: center;
                 font-family: inherit;
                 margin: 10px;
+                font-family: monospace;
                 ">
                 Google Voice Templates for CPR
             </h1>
@@ -31,7 +32,7 @@
                     </div>
                     <select
                         name="templates"
-                        id="templates"
+                        id="template-list"
                         class="form-select"
                         style="background-color: #9f3c3c; border: none; color:
                         white"
@@ -69,11 +70,11 @@
                     <label
                         class="input-group-text"
                         for="inputGroupSelect01"
-                        style="background: #9b9b9b; color: black; border: none">Location</label>
+                        style="background: #9b9b9b; color: black; border: none">Location:</label>
                 </div>
                 <select
                     name="location"
-                    id="locations"
+                    id="location"
                     class="form-select"
                     style="background-color: #9f3c3c; border: none; color:
                     white">
@@ -90,6 +91,9 @@
                 id="textfield"
                 rows="10"
                 cols="60"></textarea>
+                <!-- <ul id="template-list">
+
+                </ul> -->
 
             <h1 id="name" value="name"></h1>
             <label for="number" style="display: none">Phone Number: </label>
@@ -111,6 +115,7 @@
                 </button>
                 <button style="margin-right: 20px;" class="btn btn-primary" id="insert">Insert</button>
                 <button class="btn btn-primary" id="clear">Clear</button>
+                <button class="btn btn-primary" id="go-to-options" style="float: right;">Options</button>
             </div>
         </div>
     </body>

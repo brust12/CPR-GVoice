@@ -1,0 +1,55 @@
+
+<!-- <h1>Add Template:</h1>
+
+<select>
+    <option value="" disabled="disabled" selected="selected">Select a template:</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+</select>
+<button id="add_btn">Add</button>
+<ul>
+    <li><input type="radio" name="list" value="volvo">Volvo <button>delete</button></li>
+    <li><input type="radio" name="list" value="saab">Saab <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+    <li><input type="radio" name="list" value="mercedes">Mercedes <button>delete</button></li>
+
+</ul>
+
+<textarea  rows="10"
+cols="60"></textarea> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Extension Options</title>
+   
+  </head>
+  <body>
+    <h1>My Extension Options</h1>
+    <form>
+      <label for="template">Add Template:</label>
+      <input type="text" id="template" name="template">
+      <textarea id="temp-text"></textarea>
+      <button id="add-template" type="button">Add</button>
+    </form>
+    <ul id="template-list">
+      <li>Template 1 <button class="remove-template" data-template="template1">Remove</button></li>
+      <li>Template 2 <button class="remove-template" data-template="template2">Remove</button></li>
+      <li>Template 3 <button class="remove-template" data-template="template3">Remove</button></li>
+    </ul>
+  </body>
+</html>
+
+<script src="options.js"></script>

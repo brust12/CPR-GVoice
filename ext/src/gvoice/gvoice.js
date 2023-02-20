@@ -4,15 +4,17 @@ chrome.runtime.onMessage.addListener(
         if (request.msg === "insert") {
             console.log("info recieved!");
             var message_field = document.getElementById("input_1");
+            message_field.click
             message_field.value = request.temp;
+            
             var ev = new Event("change");
             message_field.dispatchEvent(ev);
-            loadTemplates("https://www.googleapis.com/drive/v3/files/1WlkhplRW_hhRA3XO0rN_NECqdA3k3QcV")
+            // loadTemplates("https://www.googleapis.com/drive/v3/files/1WlkhplRW_hhRA3XO0rN_NECqdA3k3QcV")
             sendResponse({status: "done"});
         }
     }
 );
-console.log("loaded");
+console.log("background loaded");
 
 // https://drive.google.com/uc?export=download&id=1WlkhplRW_hhRA3XO0rN_NECqdA3k3QcV
 // https://world.openfoodfacts.org/category/pastas/1.json

@@ -1,25 +1,32 @@
 // document.getElementById("button1").addEventListener("click",()=>alert("testing"));
 
 //Change Greeting based on locatiom when template is selected
-var loca = document.getElementById("locations");
-document.getElementById("templates").addEventListener("change", (event) => {
-    document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + event.target.value;
+// var loca = document.getElementById("locations");
+// document.getElementById("templates").addEventListener("change", (event) => {
+//     document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + event.target.value;
 
-});
+// });
 
 //Save location on change
-chrome.storage.sync.get("location", function(result) {
-    console.log(result);
-    loca.value = result.location;
-})
+// chrome.storage.sync.get("location", function(result) {
+//     console.log(result);
+//     loca.value = result.location;
+// })
 
 //Add store location greeting when location is changed
-loca.addEventListener("change", (e) => {
-    chrome.storage.sync.set({ "location": loca.value }, function() {});
-    var tex = document.getElementById("templates").value;
-    var sel_id = document.getElementById("templates").id;
-    document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + tex;
+// loca.addEventListener("change", (e) => {
+//     chrome.storage.sync.set({ "location": loca.value }, function() {});
+//     var tex = document.getElementById("templates").value;
+//     var sel_id = document.getElementById("templates").id;
+//     document.getElementById("textfield").value = "Hi ___!, it's CPR " + loca.value + tex;
     
+// })
+
+
+var template_list = document.getElementById("template-list")
+template_list.addEventListener("change",(e)=>{
+    document.getElementById("textfield").value = template_list.value;
+
 })
 
 
@@ -72,3 +79,76 @@ insert.onclick = async function(e) {
     });
     // chrome.tabs.create({active: true, url: "https://google.com"});
 }
+
+
+
+var clear = document.getElementById("clear")
+clear.onclick = function(){
+    document.getElementById("textfield").value = "";
+}
+
+
+
+document.querySelector('#go-to-options').addEventListener('click', function() {
+    if (chrome.runtime.openOptionsPage) {
+      chrome.runtime.openOptionsPage();
+    } else {
+      window.open(chrome.runtime.getURL('src/options/options.html'));
+    }
+  });
+
+
+
+
+
+
+  // get the list of templates and display them
+// function displayTemplates(templates) {
+//     var templateList = document.getElementById("template-list");
+//     templateList.innerHTML = "";
+//     for (var i = 0; i < templates.length; i++) {
+//       var template = templates[i];
+//       var li = document.createElement("li");
+//       li.textContent = template;
+//       var button = document.createElement("button");
+//       button.textContent = "Remove";
+//       button.setAttribute("class", "remove-template");
+//       button.setAttribute("data-template", template);
+//       li.appendChild(button);
+//       templateList.appendChild(li);
+//     }
+//   }
+
+
+    // get the list of templates and display them
+function displayTemplates(templates) {
+    var templateList = document.getElementById("template-list");
+    templateList.innerHTML = "";
+    for (var i = 0; i < templates.length; i++) {
+      var template = templates[i];
+      var li = document.createElement("option");
+      li.textContent = template["name"];
+      li.value = template["text"]
+    //   var button = document.createElement("button");
+    //   button.textContent = "Remove";
+    //   button.setAttribute("class", "remove-template");
+    //   button.setAttribute("data-template", template);
+    //   li.appendChild(button);
+      templateList.appendChild(li);
+    }
+  }
+  
+  
+  // listen for changes to the templates in chrome.storage
+  chrome.storage.onChanged.addListener(function(changes, areaName) {
+    if (areaName === "sync" && "templates" in changes) {
+      var newTemplates = changes.templates.newValue || [];
+      displayTemplates(newTemplates);
+    }
+  });
+  
+  // get the list of templates from chrome.storage and display them
+  chrome.storage.sync.get("templates", function(result) {
+    var templates = result.templates || [];
+    displayTemplates(templates);
+  });

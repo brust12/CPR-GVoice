@@ -1,3 +1,13 @@
 option{
     color: white;
     }   
+
+.btn-primary{
+    color:rgb(255, 255, 255) !important ;
+    background-color:#9f3c3c !important ;
+    border: none !important;
+
+}
+.btn-primary:hover{
+    background-color: rgb(125, 0, 25) !important;
+}
