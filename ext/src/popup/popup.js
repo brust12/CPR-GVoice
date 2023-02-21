@@ -124,6 +124,10 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
 function displayTemplates(templates) {
     var templateList = document.getElementById("template-list");
     templateList.innerHTML = "";
+    var asktoselect = document.createElement("option");
+    asktoselect.textContent = " "
+
+    templateList.appendChild(asktoselect)
     for (var i = 0; i < templates.length; i++) {
       var template = templates[i];
       var li = document.createElement("option");

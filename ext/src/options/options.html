@@ -34,21 +34,92 @@ cols="60"></textarea> -->
 <html>
   <head>
     <title>My Extension Options</title>
-   
+    <link rel="stylesheet" href="options.css" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1>My Extension Options</h1>
-    <form>
-      <label for="template">Add Template:</label>
-      <input type="text" id="template" name="template">
-      <textarea id="temp-text"></textarea>
-      <button id="add-template" type="button">Add</button>
-    </form>
-    <ul id="template-list">
-      <li>Template 1 <button class="remove-template" data-template="template1">Remove</button></li>
-      <li>Template 2 <button class="remove-template" data-template="template2">Remove</button></li>
-      <li>Template 3 <button class="remove-template" data-template="template3">Remove</button></li>
-    </ul>
+    
+    <div class="container-fluid row">
+      <h1>TomCat CPR Google Voice Template Options</h1>
+      <div class="col-6">
+        <div class="col-2 mb-4">
+          <label for="location_selection"><b>Store Location:</b></label>
+          <select class="form-control text-danger" id="location_selection">
+            <option>Coon Rapids</option>
+            <option>Woodbury</option>
+            <option>Eden Prairie</option>
+            <option>Burnsville</option>
+            <option>Hudson</option>
+          </select>
+  
+        </div>
+        <Label><b>Add Template:</b></Label>
+        <form role="form"  style="    border: solid 2px;
+        border-radius: 10px;
+        padding: 20px;">
+    
+    
+         
+          <div class="form-group mb-3">
+            <label for="template">Name of Template:</label>
+            <input type="text" class="form-control" id="template" name="template">
+    
+          </div>
+        
+          <div class="form-group">
+            <label for="temp-text">Template Text:</label>
+            <textarea  rows="6" id="temp-text" class="form-control" style="margin-bottom: 20px;font:message-box;"></textarea>
+            <button class="btn btn-secondary" id="add-template" type="button">Add</button>
+          </div>
+    
+    
+         
+        </form>
+    
+        <div style="padding:10px"> 
+          <label for="template-list"><h3>Templates</h3></label>
+          <ul id="template-list" class="list-group"></ul>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="col-6" style="margin-top: 75px;">
+        <div class="row-6">
+          <p>Instructions:</p>
+          <ol>
+            <li>
+              Be on the google voice site
+            </li>
+            <li>
+              Select template to use from the extention popup by clicking on logo in the bar.
+            </li>
+            <li>
+              Edit template with customers info then click insert. Info will be inserted into the text field if the google voice message.
+            </li>
+            <li>
+              You can click send button or if further editing is needed edit in extention popup or click into the text field and press space then it will show the whole message.
+            </li>
+            <li>
+              Send Message.
+            </li>
+          </ol>
+        </div>
+        <div style="margin-top:200px"class="row-6">
+          <textarea cols="100"rows="10" id="showtemplate">testing text</textarea>
+        </div>
+       
+
+      </div>
+   
+    </div>
   </body>
 </html>
 

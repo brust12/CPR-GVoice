@@ -11,6 +11,17 @@
 // function add() {
 //   console.log("working");
 // }
+let loca = document.getElementById("location_selection")
+loca.addEventListener("change", (e) => {
+    chrome.storage.sync.set({ "location": loca.value })})
+
+
+
+
+
+
+
+
 
 document.getElementById("add-template").addEventListener("click", function () {
   var name = document.getElementById("template").value;
@@ -20,6 +31,7 @@ document.getElementById("add-template").addEventListener("click", function () {
   chrome.storage.sync.get("templates", function (result) {
     var templates = result.templates || [];
     templates.push(template);
+    console.log(templates)
     chrome.storage.sync.set({ templates: templates });
     displayTemplates(templates);
   });
@@ -27,6 +39,9 @@ document.getElementById("add-template").addEventListener("click", function () {
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("remove-template")) {
+    if(!confirm("Are you sure you want to delete?")){
+      return;
+    }
     var template = event.target.dataset.template;
     chrome.storage.sync.get("templates", function (result) {
       var templates = result.templates || [];
@@ -50,11 +65,24 @@ function displayTemplates(templates) {
   for (var i = 0; i < templates.length; i++) {
     var template = templates[i];
     var li = document.createElement("li");
+    li.setAttribute("class","list-group-item")
+    li.setAttribute("style","font-size: x-large")
+
+
+    // li.addEventListener("click",function(e){
+    //   document.getElementById("showtemplate").textContent =li.value;
+    // })
     li.textContent = template["name"]
+    console.log(template)
+    
+    //Add value to list item so on click it will show in text box
+
+
     var button = document.createElement("button");
     button.textContent = "Remove";
-    button.setAttribute("class", "remove-template");
+    button.setAttribute("class", "remove-template btn btn-primary");
     button.setAttribute("data-template", template["name"]);
+    button.setAttribute("style","float:right;")
     li.appendChild(button);
     templateList.appendChild(li);
   }
@@ -64,3 +92,9 @@ chrome.storage.sync.get("templates", function (result) {
   var templates = result.templates || [];
   displayTemplates(templates);
 });
+
+chrome.storage.sync.get("location", function (result) {
+  var location = result.location;
+  loca.value = location;
+});
+

@@ -37,6 +37,7 @@
                         style="background-color: #9f3c3c; border: none; color:
                         white"
                         ;>
+                        <option selected>Open this select menu</option>
                         <option value="">Blank</option>
                         <option id="1" value="&#10;We have your Screen in Stock at CPR Coon Rapids! Stop in Today, Walk-Ins Welcome! &#10;The cost for your Screen Replacement is: &#10;-Standard Screen:$__&#10;-Apple OEM Screen: $__ (OEM screens need to be ordered)">iPhone Screen- In Stock</option>
                         <option value="&#10;We have your Part in Stock! Stop in Today, Walk-Ins Welcome!&#10;The cost for your repair will be $___."> General in Stock</option>
@@ -46,7 +47,7 @@
                         <option value="&#10;I'm sorry to hear about your device. While we can definitely attempt to service your device, we normally do liquid damage repairs for data recovery only.&#10;Our liquid damage service costs $80. Success rates are low due to the nature of liquid damage and we can't guarantee or warranty any service on it.&#10;We hope you give us the opportunity to help you out!">Liquid Damage</option>
                         <option value="&#10;Unfortunately, we do not offer repairs on Apple Watches due to the part costs and inability to fix. We often recommend replacing broken Apple Watches.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Watches</option>
                         <option value="&#10;Unfortunately, we can not offer repairs on Apple Back Glass at this location due to not having Apple OEM Back Glass parts and due to the difficulty of repair. If this repair is completed with non-OEM parts, the device will not be eligible for a future trade-in.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Back Glass</option>
-                    </select>
+                    Select</select>
                
                 
 
@@ -65,7 +66,7 @@
     
           </select>
         </div> -->
-            <div class="input-group mb-3" style="padding: 10px" ;>
+            <div class="input-group mb-3" style="padding: 10px;display: none;" >
                 <div class="input-group-prepend">
                     <label
                         class="input-group-text"
@@ -84,30 +85,22 @@
                     <option value="Eden Prarie">Eden Prarie</option>
                     <option value="Hudson">Hudson</option>
                 </select>
+              
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault" style="color:white">
+                  Add Store Greeting
+                </label>
+              </div>
 
             <textarea
                 style="margin: 10px; background: #1e1e1e; color: white; font:message-box;"
                 id="textfield"
                 rows="10"
-                cols="60"></textarea>
-                <!-- <ul id="template-list">
-
-                </ul> -->
-
-            <h1 id="name" value="name"></h1>
-            <label for="number" style="display: none">Phone Number: </label>
-            <input
-                type="tel"
-                id="number"
-                name="fname"
-                placeholder="1234567890"
-                size="9"
-                padding="15"
-                maxlength="10"
-                style="display: none"
-                />
-            <!-- <br><br> -->
+                cols="60">
+            </textarea>
+            
             <div style="margin: 10px;">
                 <button class="btn btn-primary" id="get_data" style="display:
                     none">
