@@ -7,25 +7,30 @@
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
-            />
-        <style>
-      @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-    </style>
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     </head>
 
     <body style="background: #252526">
         <div class="container">
+            <div>
+                <img style="max-width: 75%;margin: auto;display: block;"src="../images/cpr.png" alt="not found">
+            </div>
+           
             <h1
                 style="
                 color: rgb(255, 255, 255);
                 text-align: center;
                 font-family: inherit;
                 margin: 10px;
-                font-family: monospace;
+                font-family: 'Poppins', sans-serif;
                 ">
-                Google Voice Templates for CPR
+                GOOGLE VOICE TEMPLATES
             </h1>
-            <div class="input-group mb-3" style="padding: 10px";>
+            <hr style="color:white">
+            <div class="input-group" style="padding: 10px";>
                 <div  class="input-group-prepend">
                     <label class="input-group-text" for="templates" style="background: #9b9b9b; color: black; border: none">Select
                         Template:</label>
@@ -48,25 +53,10 @@
                         <option value="&#10;Unfortunately, we do not offer repairs on Apple Watches due to the part costs and inability to fix. We often recommend replacing broken Apple Watches.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Watches</option>
                         <option value="&#10;Unfortunately, we can not offer repairs on Apple Back Glass at this location due to not having Apple OEM Back Glass parts and due to the difficulty of repair. If this repair is completed with non-OEM parts, the device will not be eligible for a future trade-in.&#10;Sorry for the inconvenience, please let us know if you have any other questions!">Apple Back Glass</option>
                     Select</select>
-               
-                
+
 
             </div>
-         
-
-            <!-- <div style="padding: 10px;">
-            
-        <label for="location" style="color:rgb(255, 255, 255)">Select location:</label>
-        <select name="location" id="locations" class="form-select" style="background-color: #9f3c3c;    border: none;    color: white;">
-            <option value="Coon Rapids">Coon Rapids</option>
-            <option value="Woodbury">Woodbury</option>
-            <option value="Burnsville">Burnsville</option>
-            <option value="Eden Prarie">Eden Prarie</option>
-            <option value="Hudson">Hudson</option>
-    
-          </select>
-        </div> -->
-            <div class="input-group mb-3" style="padding: 10px;display: none;" >
+            <!-- <div class="input-group" style="padding: 10px;display: none;" >
                 <div class="input-group-prepend">
                     <label
                         class="input-group-text"
@@ -86,19 +76,18 @@
                     <option value="Hudson">Hudson</option>
                 </select>
               
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault" style="color:white">
+            </div> -->
+            <div class="form-check" style="margin-left: 50px;">
+                <input class="form-check-input" type="checkbox" value="" id="ckbx4greeting" checked>
+                <label class="form-check-label" for="ckbx4greeting" style="color:white">
                   Add Store Greeting
                 </label>
               </div>
 
             <textarea
-                style="margin: 10px; background: #1e1e1e; color: white; font:message-box;"
-                id="textfield"
-                rows="10"
-                cols="60">
+                style="margin: 10px; background: #1e1e1e; color: white; font:message-box;  width: 500px; height: 250px;"
+                class="form-control"
+                id="textfield">
             </textarea>
             
             <div style="margin: 10px;">

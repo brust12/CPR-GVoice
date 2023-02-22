@@ -41,23 +41,70 @@ cols="60"></textarea> -->
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous"
     />
+
   </head>
   <body>
     
-    <div class="container-fluid row">
+    <div class="container-fluid row g-4">
       <h1>TomCat CPR Google Voice Template Options</h1>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
       <div class="col-6">
-        <div class="col-2 mb-4">
-          <label for="location_selection"><b>Store Location:</b></label>
-          <select class="form-control text-danger" id="location_selection">
-            <option>Coon Rapids</option>
-            <option>Woodbury</option>
-            <option>Eden Prairie</option>
-            <option>Burnsville</option>
-            <option>Hudson</option>
-          </select>
-  
+
+
+        <div class="row mb-4">
+          <div class="col-4">
+            <label for="location_selection"class="form-label"><b>Store Location:</b></label>
+            <select class="form-control text-danger" id="location_selection">
+              <option>Coon Rapids</option>
+              <option>Woodbury</option>
+              <option>Eden Prairie</option>
+              <option>Burnsville</option>
+              <option>Hudson</option>
+            </select>
+        
+    
+          </div>
+          <div class="col">
+
+          </div>
+          <div class="col-4">
+            <div class="">
+              <label for="exampleFormControlInput1" class="form-label"><b>Custom Store Greeting:</b></label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Hi ___, it's CPR *****!">
+              <button class="btn btn-success" style="float: right;margin-top: 15px;";>Save</button> 
+            </div>
+            
+          </div>
+       
+
         </div>
+     
         <Label><b>Add Template:</b></Label>
         <form role="form"  style="    border: solid 2px;
         border-radius: 10px;
@@ -81,43 +128,51 @@ cols="60"></textarea> -->
          
         </form>
     
-        <div style="padding:10px"> 
-          <label for="template-list"><h3>Templates</h3></label>
-          <ul id="template-list" class="list-group"></ul>
-        </div>
+  
 
 
 
 
 
       </div>
-      <div class="col-6" style="margin-top: 75px;">
-        <div class="row-6">
+      <div class="col-6" style="margin-top: 200px;">
+        <div class="row-6"><b>
           <p>Instructions:</p>
-          <ol>
-            <li>
+          <ol class="list-group-numbered">
+            <li class="list-group-item">
               Be on the google voice site
             </li>
-            <li>
-              Select template to use from the extention popup by clicking on logo in the bar.
+            <li class="list-group-item">
+              Select template to use from the extention popup. (Open popup from clicking icon in next to address bar)
             </li>
-            <li>
-              Edit template with customers info then click insert. Info will be inserted into the text field if the google voice message.
+            <li class="list-group-item">
+              Edit template with customers info then click insert. Info will be inserted into the text field of the google voice message.
             </li>
-            <li>
-              You can click send button or if further editing is needed edit in extention popup or click into the text field and press space then it will show the whole message.
+            <li class="list-group-item">
+              You can click send button or if further editing is needed, edit the message in extention popup or click into the text field and press space then it will show the whole message.
             </li>
-            <li>
+            <li class="list-group-item">
               Send Message.
             </li>
           </ol>
+        </b>
+
         </div>
-        <div style="margin-top:200px"class="row-6">
-          <textarea cols="100"rows="10" id="showtemplate">testing text</textarea>
-        </div>
+      
        
 
       </div>
+      <div class="col-6">
+        <div style="padding:10px"> 
+          <label for="template-list"><h3>Templates:</h3></label>
+          <ul id="template-list" class="list-group"></ul>
+        </div>
+      </div>
+    <div class="col-6">
+      <div style="margin-top: 30px;"class="row-6">
+        <textarea cols="100"rows="10" id="showtemplate" style="border:none" readonly></textarea>
+      </div>
+    </div>
    
     </div>
   </body>

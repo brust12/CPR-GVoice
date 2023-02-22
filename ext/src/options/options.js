@@ -12,7 +12,7 @@
 //   console.log("working");
 // }
 let loca = document.getElementById("location_selection")
-loca.addEventListener("change", (e) => {
+loca.addEventListener("change", () => {
     chrome.storage.sync.set({ "location": loca.value })})
 
 
@@ -65,28 +65,45 @@ function displayTemplates(templates) {
   for (var i = 0; i < templates.length; i++) {
     var template = templates[i];
     var li = document.createElement("li");
-    li.setAttribute("class","list-group-item")
+    li.setAttribute("class","list-group-item temp-item")
     li.setAttribute("style","font-size: x-large")
 
 
-    // li.addEventListener("click",function(e){
-    //   document.getElementById("showtemplate").textContent =li.value;
-    // })
+    li.addEventListener("click",function(e){
+      document.getElementById("showtemplate").textContent =e.currentTarget.getAttribute("value")
+      // console.log(e.currentTarget.dataset.value)
+      clearSelected()
+      e.currentTarget.setAttribute("class",e.currentTarget.getAttribute("class") + " selected")
+    })
     li.textContent = template["name"]
-    console.log(template)
-    
+    li.setAttribute("value",template["text"])
+
     //Add value to list item so on click it will show in text box
 
-
     var button = document.createElement("button");
+    var button2 = document.createElement("button");
+    button2.setAttribute("style","float:right;")
+    button2.textContent = "^";
+
     button.textContent = "Remove";
     button.setAttribute("class", "remove-template btn btn-primary");
     button.setAttribute("data-template", template["name"]);
     button.setAttribute("style","float:right;")
+
     li.appendChild(button);
+    li.appendChild(button2)
     templateList.appendChild(li);
   }
-}
+};
+
+function clearSelected(){
+  var lis = document.getElementsByClassName("selected")[0]
+    if(lis){
+      lis.removeAttribute("class")
+      lis.setAttribute("class","list-group-item temp-item")
+    }
+
+};
 
 chrome.storage.sync.get("templates", function (result) {
   var templates = result.templates || [];

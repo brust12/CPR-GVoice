@@ -22,44 +22,81 @@
     
 // })
 
+var location_text ={
+  "Coon Rapids": "Hi ___, It's CPR Coon Rapids!\n",
+  "Woodbury":"Hi ___, It's CPR Woodbury!\n",
+  "Eden Prairie": "Hi ___, It's CPR Eden Prairie!\n",
+  "Burnsville": "Hi ___, It's CPR Burnsville!\n",
+  "Hudson" : "Hi ___, It's CPR Hudson!\n"
+};
+
 
 var template_list = document.getElementById("template-list")
 template_list.addEventListener("change",(e)=>{
-    document.getElementById("textfield").value = template_list.value;
+
+    if(document.getElementById("ckbx4greeting").checked){
+      chrome.storage.sync.get("location",function(result){
+        let greeting = location_text[result.location]
+        new_text = greeting + template_list.value;
+        document.getElementById("textfield").value = new_text;
+      })
+    }else{
+      document.getElementById("textfield").value =  template_list.value;
+    }
+
+   
 
 })
 
+var checkboxgreeting = document.getElementById("ckbx4greeting")
+checkboxgreeting.addEventListener("change",(e)=>{
+  if(e.target.checked){
+    console.log("Checked")
+    chrome.storage.sync.get("location",function(result){
+      let greeting = location_text[result.location]
+      new_text = greeting + template_list.value;
+      document.getElementById("textfield").value = new_text;
+    })
+  }else{
+    console.log("UnChecked")
+    document.getElementById("textfield").value =  template_list.value;
 
-var response_label = document.getElementById('response');
 
-//GRAB DATA IN GMAIL
-const get_data_btn = document.getElementById('get_data')
-get_data_btn.onclick = async function(e) {
-    //Check if URL is gmail otherwise listening script isnt running//DONE
-    let queryOptions = { active: true, currentWindow: true };
-    let tab = await chrome.tabs.query(queryOptions);
-
-    chrome.tabs.sendMessage(tab[0].id, { msg: "grab_info" }, function(response) {
-        var lastError = chrome.runtime.lastError;
-        if (lastError) {
-            console.log(lastError.message);
-            // 'Could not establish connection. Receiving end does not exist.'
-            return;
-        }
-        //FILL TEXT FIELDS IF DATA WAS GRABBED
-        let name = document.getElementById("name");
-        let number = document.getElementById("number");
-        msg_container = document.getElementById("textfield");
-        if (response.status == "done") {
-            msg_container.value = "hello" + response.name;
-            number.value = response.number;
-            name.textContent = response.name;
-            console.log(response.status, response.name);
-        } else {
-            response_label.textContent = response.status;
-        }
-    });
+  }
 }
+)
+
+
+// var response_label = document.getElementById('response');
+
+// //GRAB DATA IN GMAIL
+// const get_data_btn = document.getElementById('get_data')
+// get_data_btn.onclick = async function(e) {
+//     //Check if URL is gmail otherwise listening script isnt running//DONE
+//     let queryOptions = { active: true, currentWindow: true };
+//     let tab = await chrome.tabs.query(queryOptions);
+
+//     chrome.tabs.sendMessage(tab[0].id, { msg: "grab_info" }, function(response) {
+//         var lastError = chrome.runtime.lastError;
+//         if (lastError) {
+//             console.log(lastError.message);
+//             // 'Could not establish connection. Receiving end does not exist.'
+//             return;
+//         }
+//         //FILL TEXT FIELDS IF DATA WAS GRABBED
+//         let name = document.getElementById("name");
+//         let number = document.getElementById("number");
+//         msg_container = document.getElementById("textfield");
+//         if (response.status == "done") {
+//             msg_container.value = "hello" + response.name;
+//             number.value = response.number;
+//             name.textContent = response.name;
+//             console.log(response.status, response.name);
+//         } else {
+//             response_label.textContent = response.status;
+//         }
+//     });
+// }
 
 
 
@@ -85,6 +122,7 @@ insert.onclick = async function(e) {
 var clear = document.getElementById("clear")
 clear.onclick = function(){
     document.getElementById("textfield").value = "";
+    document.getElementById("ckbx4greeting").checked = false;
 }
 
 
@@ -133,11 +171,6 @@ function displayTemplates(templates) {
       var li = document.createElement("option");
       li.textContent = template["name"];
       li.value = template["text"]
-    //   var button = document.createElement("button");
-    //   button.textContent = "Remove";
-    //   button.setAttribute("class", "remove-template");
-    //   button.setAttribute("data-template", template);
-    //   li.appendChild(button);
       templateList.appendChild(li);
     }
   }

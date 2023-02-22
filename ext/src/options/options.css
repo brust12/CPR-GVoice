@@ -1,0 +1,7 @@
+li.temp-item:hover{
+    background-color: rgb(106, 106, 106);
+    color:white;
+}
+li.selected{
+    background-color: rgb(84, 152, 204);
+}
