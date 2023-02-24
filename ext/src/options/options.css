@@ -5,3 +5,9 @@ li.temp-item:hover{
 li.selected{
     background-color: rgb(84, 152, 204);
 }
+.errormessage{
+    display: none;
+    margin-left: 20px;
+    color: red;
+
+}
