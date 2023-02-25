@@ -4,9 +4,8 @@ chrome.runtime.onMessage.addListener(
         if (request.msg === "insert") {
             console.log("info recieved!");
             var message_field = document.getElementById("input_1");
-            message_field.click
             message_field.value = request.temp;
-            
+            message_field.setAttribute("style","height:200px")
             var ev = new Event("change");
             message_field.dispatchEvent(ev);
             // loadTemplates("https://www.googleapis.com/drive/v3/files/1WlkhplRW_hhRA3XO0rN_NECqdA3k3QcV")

@@ -47,23 +47,19 @@ document.getElementById("add-template").addEventListener("click", function () {
     document.getElementById("errormsg").style.display = "none"
   }
 
-
   template ={"name":name,"text":template_text}
 
   chrome.storage.sync.get("templates", function (result) {
     var templates = result.templates || [];
 
-
     if(updateTemplate(templates)){
-      alert("Template successfully updated!")
-      
+      alert("Template successfully updated!")      
     }else{
       templates.push(template);
       console.log(templates)
       chrome.storage.sync.set({ templates: templates });
       alert("Template successfully added!")
     }
-
     displayTemplates(templates);
   });
 });
@@ -85,8 +81,6 @@ var errmsg = document.getElementById("errormsg")
 errmsg.style.display = "inline"
 errmsg.textContent = "Missing Fields"
 }
-
-
 
 ///// DELETE TEMPLATE/////
 document.addEventListener("click", function (event) {
@@ -147,20 +141,16 @@ function displayTemplates(templates) {
 
     var button = document.createElement("button");
 
-
     button.textContent = "Remove";
     button.setAttribute("class", "remove-template btn btn-primary");
     button.setAttribute("data-template", template["name"]);
     button.setAttribute("style","float:right;")
-
-
 
     li.setAttribute("draggable", "true");
     li.setAttribute("data-index", i);
     li.addEventListener("dragstart", handleDragStart);
     li.addEventListener("dragover", handleDragOver);
     li.addEventListener("drop", handleDrop);
-
 
     li.appendChild(button);
     templateList.appendChild(li);
@@ -231,20 +221,43 @@ chrome.storage.onChanged.addListener(function(changes, areaName) {
   }
 });
 
-
-
-
-
 chrome.storage.sync.get("location", function (result) {
   var location = result.location;
   loca.value = location;
 });
 
-chrome.storage.sync.get("storeGreeting", function (result) {
-  var greeting = result.storeGreeting;
-  // console.log(result)
-  greet.setAttribute("placeholder",greeting)
-  greet.value= ""
-});
+
+//CUSTOM STORE GREETING
+// chrome.storage.sync.get("storeGreeting", function (result) {
+//   var greeting = result.storeGreeting;
+//   // console.log(result)
+//   greet.setAttribute("placeholder",greeting)
+//   greet.value= ""
+// });
 
 
+
+var modal = document.getElementById("instructionsModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("instructionsBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

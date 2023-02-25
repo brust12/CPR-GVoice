@@ -136,28 +136,6 @@ document.querySelector('#go-to-options').addEventListener('click', function() {
   });
 
 
-
-
-
-
-  // get the list of templates and display them
-// function displayTemplates(templates) {
-//     var templateList = document.getElementById("template-list");
-//     templateList.innerHTML = "";
-//     for (var i = 0; i < templates.length; i++) {
-//       var template = templates[i];
-//       var li = document.createElement("li");
-//       li.textContent = template;
-//       var button = document.createElement("button");
-//       button.textContent = "Remove";
-//       button.setAttribute("class", "remove-template");
-//       button.setAttribute("data-template", template);
-//       li.appendChild(button);
-//       templateList.appendChild(li);
-//     }
-//   }
-
-
     // get the list of templates and display them
 function displayTemplates(templates) {
     var templateList = document.getElementById("template-list");
@@ -189,3 +167,6 @@ function displayTemplates(templates) {
     var templates = result.templates || [];
     displayTemplates(templates);
   });
+
+
+document.getElementById("textfield").value = "";
