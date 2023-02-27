@@ -17,7 +17,7 @@ chrome.runtime.onInstalled.addListener(function (object) {
         templates.push(ip_instock,geninstock,genoutstock,applebatinstock)
        
        chrome.storage.sync.set({ templates: templates });
-
+       chrome.storage.sync.set({ location: "Coon Rapids" });
 
         // chrome.storage.local.set({templates:defaults}, function() {console.log('Saved', key, testPrefs);})
     

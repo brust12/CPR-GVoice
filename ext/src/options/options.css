@@ -1,9 +1,9 @@
 li.temp-item:hover{
-    background-color: rgb(106, 106, 106) !important;
+    background-color:  rgb(116 74 74) !important;
     color:white;
 }
 li.selected{
-    background-color: rgb(84, 152, 204) !important;
+    background-color: rgb(204 84 84) !important;
 }
 .errormessage{
     display: none;
@@ -12,7 +12,7 @@ li.selected{
 
 }
 .list-group-item{
-    background: #3a3a3a !important;
+    background: #666666  !important;
     color:white !important;
 }
 
